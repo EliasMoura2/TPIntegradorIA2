@@ -30,7 +30,7 @@ public class SOM {
 
             for (int j = 0; j < this.getPesos().size(); j++) {
                 for (int k = 0; k < unPatron.length; k++) {
-                    distanciaEuclidiana = distanciaEuclidiana + unPatron[k] - this.getPesos().get(j)[k];
+                    distanciaEuclidiana = distanciaEuclidiana + Math.pow(unPatron[k] - this.getPesos().get(j)[k], 2);
                 }
                 if (distanciaEuclidiana < distanciaEuclidianaMin) {
                     distanciaEuclidianaMin = distanciaEuclidiana;
@@ -43,6 +43,7 @@ public class SOM {
             // termina comeptencia para el patron 1 : se debe definir ganadora y actualizar los pesos
             //el metodo actualizar utiiza la neurona ganadora y el patron usado en la competencia para 
             // actualizar los pesos ----> por el momento se concidera funcion de vecindad nula
+            distanciaEuclidianaMin = 50000.0;
             actualizarPesos(ganadora,unPatron);
 
         }
