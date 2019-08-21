@@ -4,14 +4,14 @@ package som;
 import Vista.JFramePrincipal;
 import java.util.ArrayList;
 import javax.swing.JFrame;
-import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
+
 
 public class main {
 
     public static void main(String[] args) {
-        //JFrame principal = new JFramePrincipal();
-       // principal.setVisible(true);
-        ArrayList<Double[]> inicializacion = new ArrayList<Double[]>();
+        JFrame principal = new JFramePrincipal();
+       principal.setVisible(true);
+       /* ArrayList<Double[]> inicializacion = new ArrayList<Double[]>();
         ArrayList<Double[]> Entrada = new ArrayList<Double[]>();
 
         inicializacion.add(new Double[]{0.5,-0.3});
@@ -27,7 +27,7 @@ public class main {
             Entrada.add(new Double[]{-0.40,0.34});
             Entrada.add(new Double[]{-0.54,0.36});
        
-       SOM red = new SOM(2, inicializacion, 1.0);
+       SOM red = new SOM(2000,inicializacion,0.1);
        red.entrenar(Entrada);
        
        
@@ -35,9 +35,8 @@ public class main {
             System.out.println("PESOS FINALES:");
         for (int i = 0; i < red.getPesos().size(); i++) {
             Double[] get = red.getPesos().get(i);
-
             System.out.println(get[0]+"//"+get[1]);
-        }
+        }*/
     }
     
 }
