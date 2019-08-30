@@ -344,7 +344,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         jLabel5.setText("iteraciones");
 
-        jLabel6.setText("alfa");
+        jLabel6.setText("Alfa inicial");
 
         factordeaprendizaje.setText("1");
 
@@ -370,20 +370,21 @@ public class JFramePrincipal extends javax.swing.JFrame {
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(factordeaprendizaje, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(147, 147, 147))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(numeroIteraciones, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(factordeaprendizaje, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
+                                        .addComponent(numeroIteraciones, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(funcionElegida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(HEADER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -520,14 +521,16 @@ public class JFramePrincipal extends javax.swing.JFrame {
         SOM red = new SOM(Integer.valueOf(numeroIteraciones.getText()), inicializacion, Double.valueOf(factordeaprendizaje.getText()), funcion);
         red.entrenar(entrada);
 
-        for (int i = 0; i < red.getPesos().size(); i++) {
-            Double[] get = red.getPesos().get(i);
-            for (int j = 0; j < get.length; j++) {
-                Double double1 = get[j];
-                System.out.print("[" + double1 + "]");
-
-            }
-            System.out.println();
+                  for (int i = 0; i < red.getPesos().size(); i++) {
+        Double[] get = red.getPesos().get(i);
+        System.out.print("W"+i+"= ");
+        for (int j = 0; j < get.length; j++) {
+        Double double1 = get[j];
+        
+        System.out.print("[" + double1 + "]");
+        
+        }
+        System.out.println();
         }
         System.out.println("------------------------------------------------------------------------------------------------");
 
@@ -557,7 +560,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         for (int i = 0; i < modelo.getRowCount(); i++) {
             for (int j = 1; j < 1 + Integer.valueOf(numeroCaracteristicas.getText()); j++) {
-                modelo.setValueAt((Math.random() * 10 - Math.random() * 10), i, j);
+                modelo.setValueAt((Math.random() - Math.random()), i, j);
             }
         }
         TablaDePesos.setModel(modelo);

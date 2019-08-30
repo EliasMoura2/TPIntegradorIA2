@@ -7,7 +7,7 @@ public class SOM {
     private ArrayList<Double[]> pesos = new ArrayList<Double[]>();
     private Double alfaInicial;
     private int numeroDeIteraciones;
-    private Double lamda;// es un valor constante que hace que el radio y el factor de aprendizaje se reduzcan no linealmente
+    private Double lambda;// es un valor constante que hace que el radio y el factor de aprendizaje se reduzcan no linealmente
     private int tipoFuncionDeV;// este valor indica si se va a usar funcion de vecindad nula o gaussiana
     private  Double radioInicial=0.0;
 
@@ -22,7 +22,7 @@ public class SOM {
         this.radioInicial=CalcularRadioInicial();// funcion que calcula la distancia euclidiana maxima entre todos los patrones de entrada
                                                  // y establece como radio inicial a dicha distancia
         this.numeroDeIteraciones = numeroDeIteraciones;
-        this.lamda = numeroDeIteraciones / 2*(Math.log1p(radioInicial));// es un valor constante que hace que el
+        this.lambda = numeroDeIteraciones / 2*(Math.log1p(radioInicial));// es un valor constante que hace que el
                                                                         // radio y el factor de aprendizaje se reduzcan no linealmente
     }
 
@@ -70,8 +70,8 @@ public class SOM {
         // la variable "p" represanta el numero de iteracion
        Double d;// esta variable representa la distancia entre el nodo que se va a actualizar y em BMU
        Double funcionVecindad = 0.0;
-       Double radio = radioInicial * Math.pow(Math.E, -(p / this.lamda));
-       Double  alfa = this.alfaInicial * Math.pow(Math.E, -(p / this.lamda));
+       Double radio = radioInicial * Math.pow(Math.E, -(p / this.lambda));
+       Double  alfa = this.alfaInicial * Math.pow(Math.E, -(p / this.lambda));
 
         for (int i = 0; i < this.pesos.size(); i++) {// para cada neurona de la capa de salida
             Double[] get = this.pesos.get(i);
